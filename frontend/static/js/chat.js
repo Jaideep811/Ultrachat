@@ -3,11 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const userInput = document.getElementById('user-input');
     const chatMessages = document.getElementById('chat-messages');
 
-    // 🔴 IMPORTANT: backend base URL
-    // For LOCALHOST:
-    const API_BASE_URL = "http://127.0.0.1:5000";
-    // After deploying backend to Render, change to:
-    // const API_BASE_URL = "https://your-backend.onrender.com";
+    const API_BASE_URL =
+        window.location.hostname === "127.0.0.1" ||
+            window.location.hostname === "localhost"
+            ? "http://127.0.0.1:5000"
+            : "https://ultrachat-rndp.onrender.com";
+
 
     const history = [];
 
